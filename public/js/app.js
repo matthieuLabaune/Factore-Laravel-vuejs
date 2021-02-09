@@ -4266,9 +4266,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -34540,30 +34537,38 @@ var render = function() {
             "div",
             { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
             [
-              _c("div", { attrs: { id: "bar" } }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50",
-                    on: { click: _vm.saveDesign }
-                  },
-                  [_vm._v("Save Design\n                    ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50",
-                    on: { click: _vm.exportHtml }
-                  },
-                  [_vm._v("Export HTML\n                    ")]
-                )
-              ]),
+              _c(
+                "div",
+                {
+                  staticClass: "container p-3 bg-gray-300",
+                  attrs: { id: "bar" }
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "p-2 my-2 bg-red-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2",
+                      on: { click: _vm.saveDesign }
+                    },
+                    [_vm._v("Save Design\n                    ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "p-2 my-2 bg-blue-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2",
+                      on: { click: _vm.exportHtml }
+                    },
+                    [_vm._v("Export HTML\n                    ")]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c("EmailEditor", {
                 ref: "emailEditor",
+                staticClass: "container border-2 border-black",
                 staticStyle: { width: "auto", height: "800px" },
                 on: { load: _vm.editorLoaded }
               })

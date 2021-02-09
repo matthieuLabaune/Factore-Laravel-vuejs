@@ -9,19 +9,16 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div id="bar">
-                        <button
-                            class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
+                    <div id="bar" class="container p-3 bg-gray-300">
+                        <button class="p-2 my-2 bg-red-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2"
                             v-on:click="saveDesign">Save Design
                         </button>
-                        <button
-                            class="bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+                        <button class="p-2 my-2 bg-blue-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2"
                             v-on:click="exportHtml">Export HTML
                         </button>
                     </div>
 
-                    <EmailEditor ref="emailEditor" v-on:load="editorLoaded" style="width: auto ; height: 800px"/>
-
+                    <EmailEditor class="container border-2 border-black" ref="emailEditor" v-on:load="editorLoaded" style="width: auto ; height: 800px"/>
                 </div>
             </div>
         </div>

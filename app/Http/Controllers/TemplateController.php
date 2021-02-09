@@ -36,7 +36,6 @@ class TemplateController extends Controller
     public function store(Request $request)
     {
         Template::create($request->all());
-
 //        $template = new Template;
 //        $template->user_id = 2;
 //        $template->template = $request->template;
