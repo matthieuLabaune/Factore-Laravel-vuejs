@@ -26,8 +26,8 @@ Route::get('/', function () {
 });
 
 
-Route::post('template',[TemplateController::class, 'store'])->name('store.template');
-
+Route::post('template', [TemplateController::class, 'store'])->name('store.template');
+Route::get('template', [TemplateController::class, 'index'])->name('index.template');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');

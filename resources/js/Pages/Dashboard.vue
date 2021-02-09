@@ -29,37 +29,37 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
-import Welcome from '@/Jetstream/Welcome'
-import {EmailEditor} from 'vue-email-editor'
+    import AppLayout from '@/Layouts/AppLayout'
+    import Welcome from '@/Jetstream/Welcome'
+    import {EmailEditor} from 'vue-email-editor'
 
-export default {
-    components: {
-        AppLayout,
-        Welcome,
-        EmailEditor,
-    },
-    methods: {
-        editorLoaded() {
-            this.$refs.emailEditor.editor.loadDesign(sample);
+    export default {
+        components: {
+            AppLayout,
+            Welcome,
+            EmailEditor,
         },
-        saveDesign() {
-            this.$refs.emailEditor.editor.saveDesign((design) => {
-                axios.post('http://127.0.0.1:8000/template', {
-                    user_id: 2,
-                    template: design,
+        methods: {
+            editorLoaded() {
+                this.$refs.emailEditor.editor.loadDesign(sample);
+            },
+            saveDesign() {
+                this.$refs.emailEditor.editor.saveDesign((design) => {
+                    axios.post('http://127.0.0.1:8000/template', {
+                        user_id: 2,
+                        template: design,
+                    })
+                        .then(response => console.log(response))
+                        .catch(error => console.log(error));
                 })
-                    .then(response => console.log(response))
-                    .catch(error => console.log(error));
-            })
-        },
-        exportHtml() {
-            this.$refs.emailEditor.editor.exportHtml(
-                (data) => {
-                    console.log('exportHtml', data);
-                }
-            )
+            },
+            exportHtml() {
+                this.$refs.emailEditor.editor.exportHtml(
+                    (data) => {
+                        console.log('exportHtml', data);
+                    }
+                )
+            }
         }
     }
-}
 </script>

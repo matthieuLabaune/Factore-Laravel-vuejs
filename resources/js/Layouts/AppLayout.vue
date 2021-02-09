@@ -21,6 +21,11 @@
                                     Dashboard
                                 </jet-nav-link>
                             </div>
+                            <div>
+                                <jet-nav-link :href="route('index.template')" :active="route().current('index.template')">
+                                    Templates
+                                </jet-nav-link>
+                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">

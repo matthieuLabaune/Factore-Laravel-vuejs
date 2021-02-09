@@ -16,7 +16,23 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        //
+
+//        return Inertia::render('Templates', [
+//            'template' => Template::all()
+//        ]);
+
+//        return Inertia::render('Templates', [
+//            'template' => Template::all()->only('id'),
+//        ]);
+
+
+        //  return Inertia::render('Event/Show', [
+        //            'event' => $event->only('id', 'title', 'start_date', 'description'),
+        //        ]);
+
+
+        $templates = Template::all();
+        return response()->json($templates, 200);
     }
 
     /**
@@ -47,7 +63,7 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +74,7 @@ class TemplateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -69,8 +85,8 @@ class TemplateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +97,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
