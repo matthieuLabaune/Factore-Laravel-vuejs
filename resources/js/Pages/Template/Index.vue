@@ -38,9 +38,9 @@ export default {
     props: ['templates'],
 
     mounted() {
-        /*
-         console.log(this.templateList);
-         */
+         //
+         // console.log(this.templateList);
+         //
     }
 }
 </script>

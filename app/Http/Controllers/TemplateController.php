@@ -44,7 +44,9 @@ class TemplateController extends Controller
      */
     public function createHtml(Request $request)
     {
-        Storage::disk('public')->put('template.html', $request);
+        $input = $request->input('data');
+
+        Storage::disk('public')->put('template.html', $input );
     }
 
     /**

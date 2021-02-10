@@ -5273,10 +5273,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: ['templates'],
-  mounted: function mounted() {
-    /*
-     console.log(this.templateList);
-     */
+  mounted: function mounted() {//
+    // console.log(this.templateList);
+    //
   }
 });
 
