@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "js-file-download": "^0.4.12",
         "vue-email-editor": "^0.7.2"
     }
 }

@@ -28,6 +28,12 @@ Route::get('/', function () {
 
 Route::post('template',[TemplateController::class, 'store'])->name('store.template');
 
+Route::get('templates', [TemplateController::class, 'index'])->name('index.template');
+
+Route::get('template/download/', [TemplateController::class, 'download'])->name('download.template');
+Route::post('template/create/', [TemplateController::class, 'createHtml'])->name('create.template');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
