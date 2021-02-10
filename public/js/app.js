@@ -4316,7 +4316,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -4342,7 +4341,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    createHtml: function createHtml() {
+    exportHtml: function exportHtml() {
       this.$refs.emailEditor.editor.exportHtml(function (data) {
         axios.post('http://127.0.0.1:8000/template/create/', {
           data: data
@@ -4353,13 +4352,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    exportHtml: function exportHtml() {
-      this.$refs.emailEditor.editor.exportHtml(function (data) {
-        axios.get('http://127.0.0.1:8000/template/download/').then(function (response) {
-          return console.log(response);
-        })["catch"](function (error) {
-          return console.log(error);
-        });
+    saveHtml: function saveHtml() {
+      axios.get('http://127.0.0.1:8000/template/download/').then(function (response) {
+        return console.log(response);
+      })["catch"](function (error) {
+        return console.log(error);
       });
     }
   }
@@ -34747,16 +34744,13 @@ var render = function() {
             [
               _c(
                 "div",
-                {
-                  staticClass: "container p-3 bg-gray-300",
-                  attrs: { id: "bar" }
-                },
+                { staticClass: "container p-3 mb-3", attrs: { id: "bar" } },
                 [
                   _c(
                     "button",
                     {
                       staticClass:
-                        "p-2 my-2 bg-red-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2",
+                        "bg-red-500 text-white rounded px-2 mt-3 hover:bg-red-700 inline-block",
                       on: { click: _vm.saveDesign }
                     },
                     [_vm._v("Save Design\n                    ")]
@@ -34766,20 +34760,24 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "p-2 my-2 bg-blue-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2",
-                      on: { click: _vm.createHtml }
+                        "bg-green-500 text-white rounded px-2 mt-3 hover:bg-green-700 inline-block",
+                      on: { click: _vm.exportHtml }
                     },
                     [_vm._v("Create HTML file\n                    ")]
                   ),
                   _vm._v(" "),
                   _c(
-                    "button",
+                    "a",
                     {
                       staticClass:
-                        "p-2 my-2 bg-green-500 text-white rounded-md focus:outline-none focus:ring-2 ring-red-300 ring-offset-2",
-                      on: { click: _vm.exportHtml }
+                        "bg-indigo-500 text-white rounded px-2 mt-3 hover:bg-indigo-700 inline-block",
+                      attrs: { href: "/template/download" }
                     },
-                    [_vm._v("Download HTML file\n                    ")]
+                    [
+                      _vm._v(
+                        "\n                        Download html\n                    "
+                      )
+                    ]
                   )
                 ]
               ),
@@ -36156,7 +36154,7 @@ var render = function() {
                 _vm._v(" N° " + _vm._s(template.id))
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-2xl" }, [_vm._v(" Private ")])
+              _c("div", { staticClass: "text-2xl" }, [_vm._v(" Private")])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-sm text-gray-500" }, [
@@ -36170,7 +36168,7 @@ var render = function() {
                   "bg-indigo-500 text-white rounded px-2 mt-3 hover:bg-indigo-700 inline-block",
                 attrs: { href: "#" }
               },
-              [_vm._v(" Voir le template ")]
+              [_vm._v(" Voir le\n                template ")]
             )
           ])
         ])

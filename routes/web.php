@@ -30,8 +30,8 @@ Route::post('template',[TemplateController::class, 'store'])->name('store.templa
 
 Route::get('templates', [TemplateController::class, 'index'])->name('index.template');
 
-Route::get('template/download/', [TemplateController::class, 'download'])->name('download.template');
 Route::post('template/create/', [TemplateController::class, 'createHtml'])->name('create.template');
+Route::get('template/download/', [TemplateController::class, 'download'])->name('download.template');
 
 
 

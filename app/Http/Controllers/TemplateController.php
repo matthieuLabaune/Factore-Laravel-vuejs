@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Template;
-use Illuminate\Http\File;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TemplateController extends Controller
 {
@@ -17,7 +15,6 @@ class TemplateController extends Controller
     public function index()
     {
         $templates = Template::all();
-
         return Inertia::render('Template/Index', [
             'templates' => $templates
         ]);
@@ -40,10 +37,6 @@ class TemplateController extends Controller
     public function store(Request $request)
     {
         Template::create($request->all());
-//        $template = new Template;
-//        $template->user_id = 2;
-//        $template->template = $request->template;
-//        $template->save();
     }
 
     /**
@@ -51,17 +44,17 @@ class TemplateController extends Controller
      */
     public function createHtml(Request $request)
     {
-        Storage::put('file.txt', $request);
-//        return response()->download('storage/app/file.txt');
+        Storage::disk('public')->put('template.html', $request);
     }
 
     /**
-     * @param $file_name
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return mixed
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function download()
     {
-        return Storage::download('/public/', 'file.txt');
+        $file_name = 'template.html';
+        return Storage::disk('public')->download($file_name);
     }
 
     /**
